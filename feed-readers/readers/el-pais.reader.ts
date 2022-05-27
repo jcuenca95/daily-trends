@@ -4,8 +4,9 @@ import axios from 'axios'
 import { NewsDto } from "../../lib/news.dto";
 import { FeedReader } from "../core/feed-reader";
 
-export class ElPaisReader extends FeedReader {
-    
+export class ElPaisReader implements FeedReader {
+    private url = 'https://elpais.com';
+
     public async obtainData(): Promise<NewsDto[]> {
         const { data } = await axios.get<string>(this.url);
         const $ = load(data);
@@ -25,5 +26,5 @@ export class ElPaisReader extends FeedReader {
             image: $('article img').attr('src') || '',
             title: $('h1').text()
         }
-    }    
+    }
 }

@@ -3,7 +3,9 @@ import { load } from "cheerio";
 import { NewsDto } from "../../lib/news.dto";
 import { FeedReader } from "../core/feed-reader";
 
-export class ElMundoReader extends FeedReader {
+export class ElMundoReader implements FeedReader {
+    private url = 'https://elmundo.es';
+
     public async obtainData(): Promise<NewsDto[]> {
         const { data } = await axios.get<string>(this.url);
         const $ = load(data);
