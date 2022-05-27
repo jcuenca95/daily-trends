@@ -12,7 +12,6 @@ export class ElPaisReader extends FeedReader {
         const h2List = $('h2');
         h2List.length = 5;
         const top5Links = h2List.map((i, el) => `${this.url}${$(el).find('a').attr('href')}`);
-        console.log(top5Links);
         return Promise.all(top5Links.map((i, link) => this.readArticle(link)));
     }
 
