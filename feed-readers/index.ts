@@ -7,8 +7,8 @@ const feedsToRead = [
 ]
 
 async function main() {
-    console.log("Hello");
-    const data = await Promise.all(feedsToRead.map(feed => feed.obtainData()))
+    const data = await Promise.all(feedsToRead.map(feed => feed.obtainData()));
+    console.log(data)
 }
 
 main()
