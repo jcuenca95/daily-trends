@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Feeds } from 'src/app/core/interfaces/feeds.interface';
+import { Feed } from 'src/app/core/models/feed.class';
 
 @Component({
   selector: 'app-feed-list',
@@ -7,5 +7,5 @@ import { Feeds } from 'src/app/core/interfaces/feeds.interface';
   styleUrls: ['./feed-list.component.scss']
 })
 export class FeedListComponent {
-  @Input() feeds!: Feeds[];
+  @Input() feeds!: Feed[];
 }

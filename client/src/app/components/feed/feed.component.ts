@@ -11,7 +11,7 @@ import { FeedsService } from 'src/app/core/feeds/feeds.service';
 export class FeedComponent implements OnInit {
 
   private day$ = this.activeRoute.queryParams.pipe(
-    map(({ day }) => day ? new Date(day) : new Date())
+    map(({ day }) => day)
   )
   feeds$ = this.day$.pipe(
     switchMap((day) => this.feedsService.getFeeds(day))

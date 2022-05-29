@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-feed-filter',
@@ -6,12 +7,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./feed-filter.component.scss']
 })
 export class FeedFilterComponent {
-  @Output() change = new EventEmitter<{ day: string }>()
+  @Output() change = new EventEmitter<{ day: string }>();
 
-  handleDayChange(event: any) {
-    this.change.emit({
-      day: event.target.value
-    })
+  handleDayChange(event: MatDatepickerInputEvent<Date>) {
+    const value = event.value?.toISOString();
+    this.change.emit({ day: value! });
   }
-
 }

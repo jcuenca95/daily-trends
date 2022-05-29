@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Feed } from '../models/feed.class';
 import { Feeds } from '../interfaces/feeds.interface';
 
 @Injectable({
@@ -12,7 +13,10 @@ export class FeedsService {
 
   constructor(private http: HttpClient) { }
 
-  getFeeds(day: Date = new Date()): Observable<Feeds[]> {
-    return this.http.get<Feeds[]>(this.url, { params: { day: day.toISOString() } })
+  getFeeds(day: string = new Date().toISOString()): Observable<Feed[]> {
+    return this.http.get<Feeds[]>(
+      this.url,
+      { params: { day } }
+      ).pipe(map(feeds => feeds.map(feed=> new Feed(feed))))
   }
 }

@@ -1,4 +1,4 @@
-<h2>Daily Trends!</h2>
+<h1 class="title">Daily Trends!</h1>
 <app-feed-filter (change)="handleFilterChange($event)"></app-feed-filter>
 <ng-container *ngIf="feeds$ | async as feeds">
     <app-feed-list [feeds]="feeds"></app-feed-list>

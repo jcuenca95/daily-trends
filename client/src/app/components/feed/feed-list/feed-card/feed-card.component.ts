@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Feeds } from 'src/app/core/interfaces/feeds.interface';
+import { Feed } from 'src/app/core/models/feed.class';
 
 @Component({
   selector: 'app-feed-card',
@@ -7,5 +7,5 @@ import { Feeds } from 'src/app/core/interfaces/feeds.interface';
   styleUrls: ['./feed-card.component.scss']
 })
 export class FeedCardComponent {
-    @Input() feed!: Feeds;
+    @Input() feed!: Feed;
 }
