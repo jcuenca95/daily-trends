@@ -2,7 +2,7 @@ import { Request, Response, Router } from 'express';
 import { Controller } from "./controller.interface";
 import { CrudService } from './crud-service';
 
-export abstract class CrudController<T> implements Controller {
+export class CrudController<T> implements Controller {
     protected router: Router;
 
     constructor(private service: CrudService<T>) {
