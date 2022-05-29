@@ -1,1 +1,6 @@
-<app-feed-card *ngFor="let feed of feeds" [feed]="feed"></app-feed-card>
+<ng-container *ngIf="feeds.length > 0; else emptyFeeds">
+    <app-feed-card *ngFor="let feed of feeds" [feed]="feed"></app-feed-card>
+</ng-container>
+<ng-template #emptyFeeds>
+    <p class="empty-message">There is no news for this day...</p>
+</ng-template>

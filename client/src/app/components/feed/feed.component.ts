@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, startWith, switchMap, tap } from 'rxjs';
-import { FeedsService } from 'src/app/core/feeds/feeds.service';
+import { FeedsService } from 'src/app/core/services/feeds/feeds.service';
 
 @Component({
   selector: 'app-feed',
