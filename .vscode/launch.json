@@ -19,7 +19,8 @@
             "protocol": "inspector",
             "internalConsoleOptions": "openOnSessionStart",
             "env": {
-                "FEEDS_TO_READ": "https://elmundo.es,https://elpais.com"
+                "FEEDS_TO_READ": "https://elmundo.es,https://elpais.com",
+                "URL_TO_POST": "http://localhost:3000/feeds"
             }
         }
     ]
