@@ -19,7 +19,7 @@ export class CrudController<T> implements Controller {
     }
 
     public async getAll(req: Request, res: Response): Promise<void> {
-        const result = await this.service.findAll({});
+        const result = await this.service.findAll(req.query);
         res.send(result).status(200)
     }
     public async getOne(req: Request, res: Response): Promise<void> {

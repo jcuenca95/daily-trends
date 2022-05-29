@@ -1,7 +1,7 @@
 import { CrudRepository } from "./crud-repository";
 
 export class CrudService<T = any> {
-    constructor(private repository: CrudRepository<T>) { }
+    constructor(protected repository: CrudRepository<T>) { }
 
     public findAll(filter: Record<string, any>) {
         return this.repository.findAll(filter);
