@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, startWith, switchMap, tap } from 'rxjs';
 import { FeedsService } from 'src/app/core/feeds/feeds.service';
 
@@ -10,7 +10,7 @@ import { FeedsService } from 'src/app/core/feeds/feeds.service';
 })
 export class FeedComponent implements OnInit {
 
-  private day$ = this.activeRoute.params.pipe(
+  private day$ = this.activeRoute.queryParams.pipe(
     map(({ day }) => day ? new Date(day) : new Date())
   )
   feeds$ = this.day$.pipe(
@@ -18,6 +18,7 @@ export class FeedComponent implements OnInit {
   );
 
   constructor(
+    private router: Router,
     private activeRoute: ActivatedRoute,
     private feedsService: FeedsService
   ) { }
@@ -25,8 +26,12 @@ export class FeedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleFilterChange(filters: any) {
-
+  handleFilterChange({ day }: { day: string }) {
+    this.router.navigate([], {
+      queryParams: {
+        day
+      }
+    })
   }
 
 }
