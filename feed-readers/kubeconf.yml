@@ -1,0 +1,23 @@
+# https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: readers-cron-job
+  namespace: default
+spec:
+  schedule: "0 6 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: readers-cronjob
+            image: feed-readers
+            args: ['/bin/sh', '-c', 'node index.js']
+            env:
+              - name: FEEDS_TO_READ
+                value: https://elmundo.es,https://elpais.com
+              - name: URL_TO_POST
+                value: http://localhost:3000/feeds
+          restartPolicy: OnFailure
+---
