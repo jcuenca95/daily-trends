@@ -27,13 +27,13 @@ export class FeedsService {
   }
 
   createOne(body: Feeds): Observable<unknown> {
-    return this.http.post(this.url, { body })
+    return this.http.post(this.url, body)
   }
 
   updateOne(id: string, body: Feeds): Observable<unknown> {
     return this.http.put(
       `${this.url}/${id}`,
-      { body }
+      body
     )
   }
 
