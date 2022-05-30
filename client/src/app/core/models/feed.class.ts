@@ -24,4 +24,8 @@ export class Feed implements Feeds {
         const url = new URL(this.source);
         return url.hostname;
     }
+
+    get abstract(): string {
+        return `${this.body.slice(0, 140)}...`
+    }
 }
