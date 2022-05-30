@@ -4,7 +4,7 @@ Daily trends app
 ## System architecture
 ![Architecture Diagram](./diagram.png)
 
-## Readers
+### Readers
 The reader is the service in charge to read the several webs and request the Feeds API for posting new feeds to the database. This service will be running in a Kubernetes CronJob that will configure the periodicity of the reads and posts.
 
 ### Feeds API 
