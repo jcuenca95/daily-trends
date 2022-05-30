@@ -1,5 +1,8 @@
 <h1 class="title">Daily Trends!</h1>
+<div class="toolbar">
 <app-feed-filter (change)="handleFilterChange($event)"></app-feed-filter>
+<a mat-raised-button routerLink="create" color="primary">Crete new feed</a>
+</div>
 <ng-container *ngIf="feeds$ | async as feeds">
     <app-feed-list [feeds]="feeds"></app-feed-list>
 </ng-container>

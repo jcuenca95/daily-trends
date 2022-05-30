@@ -32,6 +32,10 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: FeedFormComponent
+  },
+  {
+    path: 'create',
+    component: FeedFormComponent
   }
 ]
 
