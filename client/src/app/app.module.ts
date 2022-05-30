@@ -17,6 +17,7 @@ import { FeedFilterComponent } from './components/feed/feed-filter/feed-filter.c
 import { FeedCardComponent } from './components/feed/feed-list/feed-card/feed-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FeedDetailComponent } from './components/feed-detail/feed-detail.component';
+import { FeedFormComponent } from './components/feed-form/feed-form.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: FeedDetailComponent
+  },
+  {
+    path: 'edit/:id',
+    component: FeedFormComponent
   }
 ]
 
@@ -38,6 +43,7 @@ const routes: Routes = [
     FeedFilterComponent,
     FeedCardComponent,
     FeedDetailComponent,
+    FeedFormComponent,
   ],
   imports: [
     BrowserModule,

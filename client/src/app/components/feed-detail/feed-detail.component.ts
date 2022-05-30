@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { FeedsService } from 'src/app/core/services/feeds/feeds.service';
 
@@ -8,18 +8,21 @@ import { FeedsService } from 'src/app/core/services/feeds/feeds.service';
   templateUrl: './feed-detail.component.html',
   styleUrls: ['./feed-detail.component.scss']
 })
-export class FeedDetailComponent implements OnInit {
+export class FeedDetailComponent {
 
   feed$ = this.activeRoute.params.pipe(
     switchMap(({ id }) => this.feedsService.getOne(id))
   )
 
   constructor(
+    private router: Router,
     private activeRoute: ActivatedRoute,
     private feedsService: FeedsService
   ) { }
 
-  ngOnInit(): void {
+  async handleClickOnDelete(id: string) {
+    await this.feedsService.deleteOne(id).toPromise();
+    this.router.navigateByUrl('/');
   }
 
 }

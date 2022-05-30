@@ -1,0 +1,26 @@
+<ng-container *ngIf="feed$ | async as feed">
+    <h2>Feed {{feed._id ? 'editor' : 'creator'}}</h2>
+    <div class="main-container">
+        <form class="form-container" [formGroup]="formGroup">
+            <mat-form-field>
+                <input matInput placeholder="Title" formControlName="title">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Publisher" formControlName="publisher">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Source" formControlName="source">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Image" formControlName="image">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Body" formControlName="body"></textarea>
+            </mat-form-field>
+            <div class="button-section">
+                <button mat-raised-button color="primary" (click)="handleClickButton(feed._id)">Submit</button>
+            </div>
+        </form>
+        <app-feed-card [feed]="feedModel"></app-feed-card>
+    </div>
+</ng-container>
