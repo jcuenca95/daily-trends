@@ -13,8 +13,8 @@ export class CrudController<T> implements Controller {
         this.router.get('/', (req, res) => this.getAll(req, res));
         this.router.get('/:id', (req, res) => this.getOne(req, res));
         this.router.post('/', (req, res) => this.createOne(req, res));
-        this.router.put('/', (req, res) => this.updateOne(req, res));
-        this.router.delete('/', (req, res) => this.deleteOne(req, res));
+        this.router.put('/:id', (req, res) => this.updateOne(req, res));
+        this.router.delete('/:id', (req, res) => this.deleteOne(req, res));
         return this.router;
     }
 
