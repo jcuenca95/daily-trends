@@ -1,7 +1,6 @@
 import axios from "axios";
 import { load } from "cheerio";
-import { NewsDto } from "../../lib/news.dto";
-import { FeedReader } from "../core/feed-reader";
+import { FeedReader, NewsDto } from "../core/feed-reader";
 
 export class ElMundoReader implements FeedReader {
     private url = 'https://elmundo.es';

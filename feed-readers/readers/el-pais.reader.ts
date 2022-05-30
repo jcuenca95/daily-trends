@@ -1,8 +1,7 @@
 import { load } from 'cheerio'
 import axios from 'axios'
 
-import { NewsDto } from "../../lib/news.dto";
-import { FeedReader } from "../core/feed-reader";
+import { FeedReader, NewsDto } from "../core/feed-reader";
 
 export class ElPaisReader implements FeedReader {
     private url = 'https://elpais.com';
