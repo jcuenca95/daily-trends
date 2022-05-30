@@ -1,18 +1,21 @@
 import { Feeds } from "../interfaces/feeds.interface";
 
 export class Feed implements Feeds {
+    _id?: string;
     title: string;
     body: string;
     image: string;
     source: string;
     publisher: string;
     constructor({
+        _id,
         title,
         body,
         image,
         source,
         publisher
     }: Feeds) {
+        this._id = _id;
         this.title = title;
         this.body = body;
         this.image = image;

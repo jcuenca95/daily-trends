@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -16,6 +16,19 @@ import { FeedListComponent } from './components/feed/feed-list/feed-list.compone
 import { FeedFilterComponent } from './components/feed/feed-filter/feed-filter.component';
 import { FeedCardComponent } from './components/feed/feed-list/feed-card/feed-card.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FeedDetailComponent } from './components/feed-detail/feed-detail.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: FeedComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'detail/:id',
+    component: FeedDetailComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -23,12 +36,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     FeedComponent,
     FeedListComponent,
     FeedFilterComponent,
-    FeedCardComponent
+    FeedCardComponent,
+    FeedDetailComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     MatButtonModule,
     MatNativeDateModule,

@@ -19,4 +19,10 @@ export class FeedsService {
       { params: { day } }
       ).pipe(map(feeds => feeds.map(feed=> new Feed(feed))))
   }
+
+  getOne(id: string): Observable<Feed> {
+    return this.http.get<Feeds>(
+      `${this.url}/${id}`
+    ).pipe(map(feed => new Feed(feed)))
+  }
 }

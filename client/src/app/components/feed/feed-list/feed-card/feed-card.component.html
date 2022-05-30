@@ -8,6 +8,7 @@
     {{feed.abstract}}
     </mat-card-content>
     <mat-card-actions>
-        <a [href]="feed.source" target="_blank" mat-button>Visit source</a>
+        <a [href]="feed.source" target="_blank" mat-raised-button>Visit source</a>
+        <button mat-raised-button (click)="handleClickDetail()">Detail</button>
     </mat-card-actions>
 </mat-card>

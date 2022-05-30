@@ -1,0 +1,16 @@
+<ng-container *ngIf="feed$ | async as feed; else notFound">
+    <h2>{{feed.title}}</h2>
+    <p>{{feed.media}} | {{feed.publisher}}</p>
+    <div class="content">
+        <img [src]="feed.image" />
+        <p>{{feed.body}}</p>
+    </div>
+    <div class="button-section">
+        <button mat-raised-button>Edit</button>
+        <button mat-raised-button color="warn">Delete</button>        
+    </div>
+
+</ng-container>
+<ng-template #notFound>
+    Feed not found
+</ng-template>
